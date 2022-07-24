@@ -10,20 +10,20 @@ class Calendar extends Component {
       2022,
     ],
     monthNames: [
-      "Січень",
-      "Лютий",
-      "Березень",
-      "Квітень",
-      "Травень",
-      "Червень",
-      "Липень",
-      "Серпень",
-      "Вересень",
-      "Жовтень",
-      "Листопад",
-      "Грудень",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "Novermber",
+      "December",
     ],
-    weekDayNames: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
+    weekDayNames: ["M", "T", "W", "T", "F", "S", "S"],
     onChange: Function.prototype,
   };
 
@@ -73,6 +73,7 @@ class Calendar extends Component {
     const monthData = calendar.getMonthData(this.year, this.month);
     return (
       <div className={styles.calendar}>
+        <div></div>
         <header>
           <button onClick={this.handlePrevMonthButtonClick}>{"<"}</button>
           <select
