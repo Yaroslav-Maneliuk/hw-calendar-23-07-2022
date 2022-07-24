@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as calendar from "./calendar";
 import styles from "./Calendar.module.scss";
 
 class Calendar extends Component {
@@ -58,7 +59,7 @@ class Calendar extends Component {
     const year = this.yearSelect.value;
     const month = this.monthSelect.value;
     const date = new Date(year, month);
-    console.log(date)
+    console.log(date);
     this.setState({ date });
   };
   handleDayClick = (date) => {
@@ -68,53 +69,7 @@ class Calendar extends Component {
 
   render() {
     const { years, monthNames, weekDayNames } = this.props;
-    const monthData = [
-      [
-        undefined,
-        undefined,
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-      ],
-      [
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-      ],
-      [
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-      ],
-      [
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-      ],
-      [
-        new Date(),
-        new Date(),
-        new Date(),
-        new Date(),
-        undefined,
-        undefined,
-        undefined,
-      ],
-    ];
+    const monthData = calendar.getMonthData(this.year,this.month);
     return (
       <div className={styles.calendar}>
         <header>
