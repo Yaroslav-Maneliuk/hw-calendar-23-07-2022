@@ -1,22 +1,22 @@
-.calendar-header {
+.calendar>header {
   display: flex;
   justify-content: center;
   margin-bottom: 8px;
 }
 
-.calendar-header-button,
+.calendar>header>button,
 .calendar-header-select {
   margin: 0 4px;
 }
 
-.calendar-table {
+.calendar>table {
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
   margin: auto;
 }
 
-.calendar-th {
+.calendar>th {
   vertical-align: middle;
   text-align: center;
   height: 36px;

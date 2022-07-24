@@ -1,12 +1,23 @@
 import React from "react";
+
 import Calendar from "./components/Calendar";
 
-function App() {
-  return (
-    <div>
-      <Calendar />
-    </div>
-  );
-}
+export default class App extends React.Component {
+  state = {
+    date: null,
+  };
 
-export default App;
+  handleDateChange = (date) => this.setState({ date });
+
+  render() {
+    const { date } = this.state;
+
+    return (
+      <div>
+        {date && <p>Выбранная дата: {date.toLocaleDateString()}</p>}
+
+        <Calendar onChange={this.handleDateChange} />
+      </div>
+    );
+  }
+}

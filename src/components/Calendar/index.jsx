@@ -69,14 +69,15 @@ class Calendar extends Component {
 
   render() {
     const { years, monthNames, weekDayNames } = this.props;
-    const monthData = calendar.getMonthData(this.year,this.month);
+    const { currentDate, selectedDate } = this.state;
+    const monthData = calendar.getMonthData(this.year, this.month);
     return (
       <div className={styles.calendar}>
         <header>
           <button onClick={this.handlePrevMonthButtonClick}>{"<"}</button>
           <select
             ref={(element) => (this.monthSelect = element)}
-            defaultValue={this.month}
+            value={this.month}
             onChange={this.handleSelectChange}
           >
             {monthNames.map((name, index) => (
@@ -118,6 +119,10 @@ class Calendar extends Component {
                     <td
                       key={index}
                       className={styles.day}
+                    //   className={classnames('day', {
+                    //     'today': calendar.areEqual(date, currentDate),
+                    //     'selected': calendar.areEqual(date, selectedDate)
+                    // })}
                       onClick={() => this.handleDayClick(date)}
                     >
                       {date.getDate()}
